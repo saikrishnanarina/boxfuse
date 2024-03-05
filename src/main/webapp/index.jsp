@@ -4,7 +4,7 @@
 </head>
 <body style="text-align: center">
 <h1>Congratulations!</h1>
-<img src="boxfuse.png">
+<img src="techmahindra.png">
 
 <h2>You have successfully learned DEVOPS</h2>
 
