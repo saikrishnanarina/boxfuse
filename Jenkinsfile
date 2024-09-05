@@ -21,7 +21,7 @@ pipeline {
 			}
             steps {
                 gitCheckout(
-                    branch: "main",
+                    branch: "master",
                     url: "https://github.com/saikrishnanarina/boxfuse.git"
                 )
             }
