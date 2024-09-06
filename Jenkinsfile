@@ -5,9 +5,9 @@ pipeline {
   
   parameters {
 	choice(name: 'action', choices: 'create\nrollback', description: 'Create/rollback of the deployment')
-    string(name: 'ImageName', description: "Name of the docker build", defaultValue: "kubernetes-configmap-reload")
+    string(name: 'ImageName', description: "Name of the docker build", defaultValue: "Inventory_project_deployment")
 	string(name: 'ImageTag', description: "Name of the docker build",defaultValue: "v1")
-	string(name: 'AppName', description: "Name of the Application",defaultValue: "kubernetes-configmap-reload")
+	string(name: 'AppName', description: "Name of the Application",defaultValue: "Inventory_project_deployment")
     string(name: 'docker_repo', description: "Name of docker repository",defaultValue: "narina22")
   }
       
