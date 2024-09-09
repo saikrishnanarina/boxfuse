@@ -43,6 +43,13 @@ pipeline {
         		}
     		}
 	    }
+	    stage('Copy File') {
+            steps {
+                script {
+                    sh 'cp /var/lib/jenkins/workspace/deployment/Dockerfile /var/lib/jenkins/workspace/deployment/inventory_project_deployment/'
+                }
+            }
+        }
 	    stage("DockerBuild and Push") {
 	        when {
 				expression { params.action == 'create' }
