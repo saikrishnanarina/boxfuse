@@ -1,3 +1,3 @@
 FROM openjdk:8-jdk-alpine
-COPY ./target/*.jar app.jar
+COPY ./target/*.war app.war
 ENV JAVA_OPTS=""
