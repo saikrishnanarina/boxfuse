@@ -28,22 +28,7 @@ pipeline {
                 )
             }
         }
-    stage("Sonarqube Analysis"){
-            steps{
-                withSonarQubeEnv('sonar-server') {
-                    sh ''' $SCANNER_HOME/bin/sonar-scanner -Dsonar.projectName=boxfuse \
-                    -Dsonar.projectKey=boxfuse '''
-                }
-            }
-        }
-    stage("Code Quality Gate"){
-           steps {
-                script {
-                    waitForQualityGate abortPipeline: false, credentialsId: 'Sonar-token' 
-                }
-            } 
-        }
-//	stage('Copy File') {
+    //	stage('Copy File') {
   //          steps {
     //            script {
       //              sh 'cp /var/lib/jenkins/workspace/deployment/pom.xml /var/lib/jenkins/workspace/deployment/inventory_project_deployment/'
@@ -112,4 +97,4 @@ pipeline {
 	    }
     }
   }
-}
+
