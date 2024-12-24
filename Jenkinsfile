@@ -13,7 +13,9 @@ pipeline {
       
   tools{ 
         maven 'maven3'
-    }
+  environment {
+	  SCANNER_HOME=tool 'sonar-scanner'
+  }
     stages {
         stage('Git-Checkout') {
             when {
@@ -25,6 +27,21 @@ pipeline {
                     url: "https://github.com/saikrishnanarina/boxfuse.git"
                 )
             }
+        }
+    stage("Sonarqube Analysis"){
+            steps{
+                withSonarQubeEnv('sonar-server') {
+                    sh ''' $SCANNER_HOME/bin/sonar-scanner -Dsonar.projectName=boxfuse \
+                    -Dsonar.projectKey=boxfuse '''
+                }
+            }
+        }
+    stage("Code Quality Gate"){
+           steps {
+                script {
+                    waitForQualityGate abortPipeline: false, credentialsId: 'Sonar-token' 
+                }
+            } 
         }
 //	stage('Copy File') {
   //          steps {
